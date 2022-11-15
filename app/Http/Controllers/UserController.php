@@ -15,6 +15,7 @@ class UserController extends Controller
         return view('users/show', compact('users'));
     }
 
+
     public function store(StoreUpdateUserFormRequest $request){
 
         //metodo 1 de insersao de dados na tabela
@@ -41,5 +42,24 @@ class UserController extends Controller
         $users = User::get();
         //dd($users);
         return view('users.show', compact('users'));
+    }
+    public function edit($id){
+        if(!$user = User::find($id))
+            return redirect()->route('home');
+        
+        return view('users.editar', compact('user'));
+    }
+
+    public function update(Request $request,$id){
+
+        if(!$user = User::find($id))
+            return redirect()->route('home');
+
+            $data = $request->only('name', 'email');
+            if($request->password)
+                $data['password'] = bcrypt($request->password);
+            $user-> update($data);
+            //dd($user);
+        return redirect()->route('home');
     }
 }

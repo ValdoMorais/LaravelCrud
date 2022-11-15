@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('users.cadastrar');
 });
 
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::get('home', [UserController::class, 'home'])->name('home');
 Route::get('/user/{id}', [UserController::class, 'show'])->name('user.show');
 Route::post('/create', [UserController::class, 'store'])->name('user.store');
