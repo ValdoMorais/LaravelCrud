@@ -18,5 +18,6 @@ Route::get('/', function () {
     return view('users.cadastrar');
 });
 
+Route::get('home', [UserController::class, 'home'])->name('home');
 Route::get('/user/{id}', [UserController::class, 'show'])->name('user.show');
 Route::post('/create', [UserController::class, 'store'])->name('user.store');
