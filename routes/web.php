@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('users.cadastrar');
 });
+
+Route::get('/user/{id}', [UserController::class, 'show'])->name('user.show');
+Route::post('/create', [UserController::class, 'store'])->name('user.store');
