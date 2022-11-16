@@ -17,7 +17,7 @@ use App\Http\Controllers\UserController;
 // Route::get('/', function () {
 //     return view('users.show');
 //  });
-
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.apagar');
 Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
 Route::get('/users/cadastrar',[UserController::class, 'cadastro'])->name('users.cadastrar');
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');

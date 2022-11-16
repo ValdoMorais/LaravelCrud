@@ -14,7 +14,7 @@ class UserController extends Controller
         //dd($users);
         return view('users/show', compact('users'));
     }
-    
+
     public function home(){
         $users = User::get();
         //dd($users);
@@ -58,7 +58,7 @@ class UserController extends Controller
         return view('users.editar', compact('user'));
     }
 
-    public function update(Request $request,$id){
+    public function update(StoreUpdateUserFormRequest $request,$id){
 
         if(!$user = User::find($id))
             return redirect()->route('home');
@@ -69,5 +69,11 @@ class UserController extends Controller
             $user-> update($data);
             //dd($user);
         return redirect()->route('home');
+    }
+    public function destroy($id){
+        if(!$user = User::find($id))
+            return redirect()->route('home');
+        $user -> delete();
+            return redirect()->route('home');
     }
 }
