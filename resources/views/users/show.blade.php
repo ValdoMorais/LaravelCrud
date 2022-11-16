@@ -1,5 +1,6 @@
 @include('layouts.app')
-<h1>Lista de usuarios</h1>
+<h1>Lista de usuarios <a href="{{route('users.cadastrar')}}">+</a> <br></h1>
+
     @foreach ($users as $user ) 
         {{$user -> name}} 
         {{$user -> email}}

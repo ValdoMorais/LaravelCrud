@@ -14,6 +14,13 @@ class UserController extends Controller
         //dd($users);
         return view('users/show', compact('users'));
     }
+    
+    public function home(){
+        $users = User::get();
+        //dd($users);
+        return view('users/show', compact('users'));
+    }
+
 
 
     public function store(StoreUpdateUserFormRequest $request){
@@ -38,11 +45,12 @@ class UserController extends Controller
         //     'name', 'email', 'password'
         //  ]));
     }
-    public function home(){
-        $users = User::get();
+    public function cadastro(){
         //dd($users);
-        return view('users.show', compact('users'));
+        return view('users.cadastrar');
+
     }
+
     public function edit($id){
         if(!$user = User::find($id))
             return redirect()->route('home');

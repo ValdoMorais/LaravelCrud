@@ -14,13 +14,13 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('users.cadastrar');
-});
+// Route::get('/', function () {
+//     return view('users.show');
+//  });
 
 Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
-
+Route::get('/users/cadastrar',[UserController::class, 'cadastro'])->name('users.cadastrar');
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::get('home', [UserController::class, 'home'])->name('home');
-Route::get('/user/{id}', [UserController::class, 'show'])->name('user.show');
+Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
 Route::post('/create', [UserController::class, 'store'])->name('user.store');

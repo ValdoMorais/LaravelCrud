@@ -1,6 +1,7 @@
 @include('layouts.app')
 
 <br>
+ <H1>Registrar Usuario</H1>
 <br>
 
 @if ($errors->any())
