@@ -1,7 +1,7 @@
 @include('layouts.app')
 
 <br>
-<h1>Editar {{$user ->name}}</h1>
+<h1 class="text-2x1 font-semibold lending-tigh py-2">Editar {{$user ->name}}</h1>
 
 @include('layouts.validationForm')
 
