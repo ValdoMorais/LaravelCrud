@@ -10,13 +10,16 @@ class UserController extends Controller
 {
     //
     public function show(){
+
         $users = User::get();
         //dd($users);
         return view('users/show', compact('users'));
     }
 
-    public function home(){
-        $users = User::get();
+    public function home(Request $request){
+
+
+        $users = User::where('name', 'LIKE', "%{$request->search}%")->get();
         //dd($users);
         return view('users/show', compact('users'));
     }
@@ -57,6 +60,16 @@ class UserController extends Controller
         
         return view('users.editar', compact('user'));
     }
+
+    public function showuser($id){
+        if(!$user = User::find($id))
+            return redirect()->route('home');
+
+        //dd($user->name) ;  
+        
+        return view('users.detalhes', compact('user'));
+    }
+
 
     public function update(StoreUpdateUserFormRequest $request,$id){
 

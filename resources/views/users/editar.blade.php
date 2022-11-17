@@ -2,7 +2,7 @@
 
 <br>
 <br>
-<h1>Editar usuario {{$user ->name}}</h1>
+<h1>Editar o usuario {{$user ->name}}</h1>
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul class="errors">

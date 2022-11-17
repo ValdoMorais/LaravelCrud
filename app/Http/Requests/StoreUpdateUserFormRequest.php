@@ -24,7 +24,7 @@ class StoreUpdateUserFormRequest extends FormRequest
     public function rules()
     {
         $id = $this-> id ?? '';
-
+        
         $rules = [
             //
             'name'=> 'required|String|min:5|max:30',
@@ -41,16 +41,17 @@ class StoreUpdateUserFormRequest extends FormRequest
         ];
         
 
-        if($this ->method('PUT')){
+        if($this ->method('PUT'))
             $rules = [
                 //
                 'password' =>[
                     'nullable',
                     'min:4',
-                    'max:12']
+                    'max:12'
+                ]
             ];
-            return $rules;
+        
 
-        }
+        return $rules;
     }
 }

@@ -17,10 +17,11 @@ use App\Http\Controllers\UserController;
 // Route::get('/', function () {
 //     return view('users.show');
 //  });
+Route::get('/users/{id}/show', [UserController::class, 'showuser'])->name('users.showuser');
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.apagar');
 Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
 Route::get('/users/cadastrar',[UserController::class, 'cadastro'])->name('users.cadastrar');
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
-Route::get('home', [UserController::class, 'home'])->name('home');
+Route::get('/', [UserController::class, 'home'])->name('home');
 Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
 Route::post('/create', [UserController::class, 'store'])->name('user.store');
