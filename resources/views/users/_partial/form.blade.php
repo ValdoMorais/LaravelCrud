@@ -8,5 +8,5 @@
 <div class="mb-3">
     <input type="text" class="form-control" name= "password" placeholder="insira o password" >
 </div>
-    <button type="submit" class="shadow bg-purple-500 hover:bg-purple"> Enviar</button>
+    <button type="submit" class="shadow rounded-full bg-purple-500 hover:bg-purple w-24"> Enviar</button>
 </div> 
